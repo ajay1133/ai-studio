@@ -1,6 +1,6 @@
 # AI Usage Documentation
 
-This document outlines where and how AI tools were used in the Modelia project.
+This document outlines where and how AI tools were used in the AI Studio project.
 
 ## Image Generation
 

@@ -1,6 +1,6 @@
-# Modelia - Image Generation Application
+# AI Studio Image Generation Application
 
-This README provides a comprehensive guide on how to set up and run the Modelia application, which consists of both a server and a client component.
+This README provides a comprehensive guide on how to set up and run the application, which consists of both a server and a client component.
 
 ## Prerequisites
 
@@ -21,7 +21,6 @@ Before running the application, ensure you have the following requirements met:
    - Create a `.env` file in the root directory with the following variables:
      ```env
      DATABASE_URL=your_postgresql_connection_string
-     NODE_ENV=development
      SESSION_SECRET=your_session_secret
      ```
 
@@ -50,6 +49,34 @@ Before running the application, ensure you have the following requirements met:
    npm start
    ```
 
+## Docker (Dev)
+
+Create a `.env` file (copy from `.env.example`) and then run:
+
+```powershell
+docker compose up --build
+```
+
+This starts Postgres, runs `npm run db:push`, then starts `npm run dev`.
+
+Reset Postgres data:
+
+```powershell
+docker compose down -v
+```
+
+App URL: `http://localhost:5000` (the server serves both API + client on `PORT`, default `5000`).
+
+## Docker (Prod)
+
+Build the production image and run the production compose file:
+
+```powershell
+docker build -t ai-studio:prod .
+docker compose -f docker-compose.prod.yml up
+```
+
+App URL: `http://localhost:5000`
 ## Usage Guide
 
 ### Authentication Flow

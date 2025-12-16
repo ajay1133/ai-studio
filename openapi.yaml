@@ -1,10 +1,10 @@
 openapi: 3.0.3
 info:
-  title: Modelia AI Studio API
-  description: Full-stack AI image generation application with JWT authentication
+  title: AI Studio API
+  description: AI image generation application based on user prompts
   version: 1.0.0
   contact:
-    name: Modelia AI Studio Support
+    name: AI Studio Support
 
 servers:
   - url: http://localhost:5000
