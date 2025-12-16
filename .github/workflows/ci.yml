@@ -16,7 +16,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: modelia_test
+          POSTGRES_DB: ai_studio
         ports:
           - 5432:5432
         options: >-
@@ -45,7 +45,8 @@ jobs:
     - name: Run server tests
       run: npm run test:server -- --coverage
       env:
-        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/modelia_test
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ai_studio
+        SESSION_SECRET: session_secret
 
     # Upload coverage reports to Codecov (optional)
     - name: Upload coverage to Codecov
@@ -53,5 +54,5 @@ jobs:
       with:
         files: ./coverage/client/lcov.info,./coverage/server/lcov.info
         flags: unittests
-        name: codecov-modelia
+        name: codecov-ai-studio
         fail_ci_if_error: false
